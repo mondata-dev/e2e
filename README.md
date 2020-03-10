@@ -13,9 +13,10 @@ npm run allure-report
 
 - Allure Reporter
 - Typescript PageObjects
-- Typescirpt Cucumber step decorators
 - Chai For assertions
 - Selenium Standalone with chrome and firefox capabilties in headless mode
+- prettier
+- eslint
 - Vscode launch configuration to debug tests
 
 ## Debugging Tests
