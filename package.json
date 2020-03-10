@@ -25,7 +25,6 @@
     "@wdio/sync": "^5.15.1",
     "allure-commandline": "^2.13.0",
     "chai": "^4.2.0",
-    "cucumber-tsflow": "^3.2.0",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.9.0",
