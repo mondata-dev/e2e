@@ -1,40 +1,30 @@
 {
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
 
-    "debug.node.autoAttach": "off",
-    "diffEditor.ignoreTrimWhitespace": true,
-    "diffEditor.renderSideBySide": true,
-    "cucumberautocomplete.steps": ["src/step_definitions/**/*.ts"],
-    "cucumberautocomplete.syncfeatures": "src/features/**/*feature",
-    "cucumberautocomplete.strictGherkinCompletion": true,
-    "cucumberautocomplete.strictGherkinValidation": true,
-    "cucumberautocomplete.smartSnippets": true,
-    "cucumberautocomplete.stepsInvariants": true,
-    "cucumberautocomplete.customParameters": [
-        {
-            "parameter": "{ab}",
-            "value": "(a|b)"
-        }
-    ],
-    "cucumberautocomplete.skipDocStringsFormat": true,
-    "cucumberautocomplete.formatConfOverride": {
-        "And": 3,
-        "But": "relative"
-    },
-    "cucumberautocomplete.onTypeFormat": true,
-    "editor.quickSuggestions": {
-        "comments": false,
-        "strings": true,
-        "other": true
-    },
-    "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.formatOnSave": true
+  "debug.node.autoAttach": "off",
+  "cucumberautocomplete.steps": ["src/step_definitions/**/*.ts"],
+  "cucumberautocomplete.syncfeatures": "src/features/**/*feature",
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "cucumberautocomplete.strictGherkinValidation": true,
+  "cucumberautocomplete.smartSnippets": true,
+  "cucumberautocomplete.stepsInvariants": true,
+  "cucumberautocomplete.customParameters": [
+    {
+      "parameter": "{ab}",
+      "value": "(a|b)"
+    }
+  ],
+  "cucumberautocomplete.skipDocStringsFormat": true,
+  "cucumberautocomplete.onTypeFormat": true,
+  "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2
 }
