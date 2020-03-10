@@ -1,6 +1,5 @@
-const fetch = require("node-fetch");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+import * as fetch from "node-fetch";
+import { JSDOM } from "jsdom";
 
 export default abstract class Page {
   private _path: string;
