@@ -9,7 +9,7 @@
     "debug.node.autoAttach": "off",
     "diffEditor.ignoreTrimWhitespace": true,
     "diffEditor.renderSideBySide": true,
-    "cucumberautocomplete.steps": ["src/step_definitions/**/*.ts"],
+    "cucumberautocomplete.steps": ["src/stepDefinitions/**/*.ts"],
     "cucumberautocomplete.syncfeatures": "src/features/**/*feature",
     "cucumberautocomplete.strictGherkinCompletion": true,
     "cucumberautocomplete.strictGherkinValidation": true,
@@ -36,19 +36,5 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.formatOnSave": true,
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#be8067",
-        "activityBar.foreground": "#15202b",
-        "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#a6d9b4",
-        "activityBarBadge.foreground": "#15202b",
-        "titleBar.activeBackground": "#aa6448",
-        "titleBar.inactiveBackground": "#aa644899",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveForeground": "#e7e7e799",
-        "statusBar.background": "#aa6448",
-        "statusBarItem.hoverBackground": "#be8067",
-        "statusBar.foreground": "#e7e7e7"
-    }
+    "editor.formatOnSave": true
 }
