@@ -2,10 +2,12 @@
 
 ## Usage
 
-    npm install
-    npm run test
-    npm run test:debug
-    npm run allure-report
+```bash
+npm install
+npm run test
+npm run test:debug
+npm run allure-report
+```
 
 ## Boilerplate project with CucumberJS configured with typescript
 
