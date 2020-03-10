@@ -21,7 +21,7 @@
   ],
   "cucumberautocomplete.skipDocStringsFormat": true,
   "cucumberautocomplete.onTypeFormat": true,
-  "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then)\\(",
+  "cucumberautocomplete.gherkinDefinitionPart": "(Given|When|Then|Task)\\(",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
