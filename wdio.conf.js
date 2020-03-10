@@ -189,7 +189,7 @@ exports.config = {
                 require('ts-node').register({ files: true });
             },
         ],
-        require: ['./src/stepDefinitions/*.steps.ts'], // <string[]> (file/dir) require files before executing features
+        require: ['./src/step_definitions/*.steps.ts'], // <string[]> (file/dir) require files before executing features
     },
 
     //
