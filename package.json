@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --ext .js,.ts",
+    "prettier-check": "prettier --check '**/*.js' '**/*.ts' '**/*.json' '**/*.md'",
+    "prettier": "prettier --write '**/*.js' '**/*.ts' '**/*.json' '**/*.md'",
     "test": "wdio",
     "test:debug": "DEBUG=true wdio",
     "allure-report": "allure generate ./allure-results --clean && allure open"
@@ -16,6 +19,8 @@
     "@types/jsdom": "^12.2.4",
     "@types/reflect-metadata": "^0.1.0",
     "@types/webdriverio": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "@wdio/allure-reporter": "^5.15.2",
     "@wdio/cli": "^5.15.2",
     "@wdio/cucumber-framework": "^5.15.1",
@@ -25,6 +30,9 @@
     "@wdio/sync": "^5.15.1",
     "allure-commandline": "^2.13.0",
     "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-wdio": "^5.13.2",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.9.0",

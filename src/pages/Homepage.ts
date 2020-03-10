@@ -34,6 +34,7 @@ class Homepage extends Page {
   search() {
     this.searchButton.click();
   }
+
   isSearched() {
     this.resultsList.waitForDisplayed(1000);
     return this.resultsList.isDisplayed();
