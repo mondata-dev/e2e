@@ -17,5 +17,9 @@
     "lib": ["es2018", "dom"],
     "experimentalDecorators": true
   },
-  "include": ["./types/*.d.ts", "./src/**/*.ts"]
+  "include": [
+    "./types/*.d.ts",
+    "node_modules/wdio-visual-regression/build/index.d.ts",
+    "./src/**/*.ts"
+  ]
 }

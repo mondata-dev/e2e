@@ -63,3 +63,8 @@ typings/
 # allure
 allure-report
 allure-results
+
+# visual regression
+/regression/actual
+/regression/diff
+/regression/report.json
