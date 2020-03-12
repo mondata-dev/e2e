@@ -15,6 +15,7 @@ npm run allure-report
 - Typescript PageObjects
 - Chai For assertions
 - Selenium Standalone with chrome and firefox capabilties in headless mode
+- Visual regression testing via https://github.com/ennjin/wdio-visual-regression
 - prettier
 - eslint
 - Vscode launch configuration to debug tests
