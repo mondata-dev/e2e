@@ -8,7 +8,7 @@
     "prettier-check": "prettier --check '**/*.js' '**/*.ts' '**/*.json' '**/*.md'",
     "prettier": "prettier --write '**/*.js' '**/*.ts' '**/*.json' '**/*.md'",
     "test": "wdio",
-    "test:debug": "DEBUG=true wdio",
+    "test:debug": "cross-env DEBUG=true wdio",
     "allure-report": "allure generate ./allure-results --clean && allure open"
   },
   "author": "",
@@ -30,6 +30,7 @@
     "@wdio/sync": "^5.15.1",
     "allure-commandline": "^2.13.0",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-wdio": "^5.13.2",
