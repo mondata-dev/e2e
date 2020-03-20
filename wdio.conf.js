@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { addArgument } = require("@wdio/allure-reporter").default;
 const { VisualRegression } = require("wdio-visual-regression");
+const { ViewportSizeService } = require("wdio-viewport-size");
 const debug = !!process.env.DEBUG;
 const execArgv = debug ? ["--inspect"] : [];
 const stepTimout = debug ? 24 * 60 * 60 * 1000 : 6000;
@@ -149,6 +150,7 @@ exports.config = {
         /* options */
       },
     ],
+    [ViewportSizeService, {}],
   ],
 
   // Framework you want to run your specs with.
@@ -250,6 +252,9 @@ exports.config = {
    */
   beforeFeature: function(uri, feature, scenarios) {
     scenarioCounter = 0;
+
+    // make sure all browsers have the same viewport dimensions
+    browser.setViewportSize(1600, 900);
   },
   /**
    * Runs before a Cucumber scenario

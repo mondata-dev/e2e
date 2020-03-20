@@ -20,6 +20,7 @@
   "include": [
     "./types/*.d.ts",
     "node_modules/wdio-visual-regression/build/index.d.ts",
+    "node_modules/wdio-viewport-size/typings/index.d.ts",
     "./src/**/*.ts"
   ]
 }
