@@ -44,7 +44,7 @@
     "node-fetch": "^2.6.0",
     "reflect-metadata": "^0.1.13",
     "wdio-viewport-size": "^1.0.1",
-    "wdio-visual-regression": "^0.3.6",
+    "wdio-visual-regression": "^1.0.0",
     "wdio-visual-regression-reporter": "^1.0.0",
     "webdriverio": "^5.15.2"
   }
