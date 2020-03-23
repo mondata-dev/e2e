@@ -65,6 +65,6 @@ allure-report
 allure-results
 
 # visual regression
-/regression/actual
-/regression/diff
-/regression/report.json
+/screenshots/*/actual
+/screenshots/*/diff
+/screenshots/report.json

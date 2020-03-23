@@ -2,6 +2,7 @@
 const { addArgument } = require("@wdio/allure-reporter").default;
 const { VisualRegression } = require("wdio-visual-regression");
 const { ViewportSizeService } = require("wdio-viewport-size");
+const { summarizeReportFile } = require("wdio-visual-regression-reporter");
 const debug = !!process.env.DEBUG;
 const execArgv = debug ? ["--inspect"] : [];
 const stepTimout = debug ? 24 * 60 * 60 * 1000 : 6000;
@@ -147,7 +148,12 @@ exports.config = {
     [
       VisualRegression,
       {
-        /* options */
+        outputDir: "screenshots",
+        instanceFolder: info => {
+          const [version] = info.browserVersion.split(".");
+          const platform = info.platform || process.platform;
+          return `${info.browserName}_${version}_${platform.toLowerCase()}`;
+        },
       },
     ],
     [ViewportSizeService, {}],
@@ -327,8 +333,14 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete: function(exitCode, config, capabilities, results) {
+    try {
+      // we want to wait just a bit to be the last one to report
+      setTimeout(() => summarizeReportFile("screenshots/report.json"), 1);
+    } catch (e) {
+      console.error(e);
+    }
+  },
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session
