@@ -43,6 +43,7 @@
     "jsdom": "^15.2.0",
     "node-fetch": "^2.6.0",
     "reflect-metadata": "^0.1.13",
+    "wdio-video-reporter": "^2.0.0",
     "wdio-viewport-size": "^1.0.1",
     "wdio-visual-regression": "^1.0.0",
     "wdio-visual-regression-reporter": "^1.0.0",

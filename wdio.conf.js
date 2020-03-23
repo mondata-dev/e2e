@@ -3,6 +3,8 @@ const { addArgument } = require("@wdio/allure-reporter").default;
 const { VisualRegression } = require("wdio-visual-regression");
 const { ViewportSizeService } = require("wdio-viewport-size");
 const { summarizeReportFile } = require("wdio-visual-regression-reporter");
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const video = require("wdio-video-reporter");
 const debug = !!process.env.DEBUG;
 const execArgv = debug ? ["--inspect"] : [];
 const stepTimout = debug ? 24 * 60 * 60 * 1000 : 6000;
@@ -175,6 +177,14 @@ exports.config = {
   // see also: https://webdriver.io/docs/dot-reporter.html
   reporters: [
     "spec",
+    // uncomment if you need a video of a failed run
+    // [
+    //   video,
+    //   {
+    //     saveAllVideos: false, // If true, also saves videos for successful test cases
+    //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+    //   },
+    // ],
     [
       "allure",
       {
