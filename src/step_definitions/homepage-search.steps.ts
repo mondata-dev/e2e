@@ -9,7 +9,7 @@ Given(/^I am on the search page$/, async () => {
   expect(title).to.eq("Google");
 });
 
-When(/^I enter "([^"]*)" into the search box$/, arg1 => {
+When(/^I enter "([^"]*)" into the search box$/, (arg1) => {
   homepage.enterText(arg1);
 });
 
