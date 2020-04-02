@@ -6,6 +6,7 @@
 npm install
 npm run test
 npm run test:debug
+npm run test:debug -- --spec src/features/my-feature.feature
 npm run allure-report
 ```
 
