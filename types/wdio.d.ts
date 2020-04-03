@@ -2,8 +2,8 @@ import "@wdio/sync";
 
 declare module "@wdio/sync" {
   interface WdioScreenshotOptions {
-    hide: string[];
-    remove: string[];
+    hide?: string[];
+    remove?: string[];
   }
 
   // adding command to `browser`
