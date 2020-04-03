@@ -10,12 +10,12 @@ declare module "@wdio/sync" {
   interface BrowserObject {
     matchDocument(name: string): number;
 
-    saveViewportScreenshot(fileName: string, options: WdioScreenshotOptions);
-    saveDocumentScreenshot(fileName: string, options: WdioScreenshotOptions);
+    saveViewportScreenshot(fileName: string, options?: WdioScreenshotOptions);
+    saveDocumentScreenshot(fileName: string, options?: WdioScreenshotOptions);
     saveElementScreenshot(
       fileName: string,
       elementSelector: string,
-      options: WdioScreenshotOptions,
+      options?: WdioScreenshotOptions,
     );
   }
 }
