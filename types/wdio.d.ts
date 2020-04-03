@@ -11,7 +11,7 @@ declare module "@wdio/sync" {
     matchDocument(name: string, options?: WdioScreenshotOptions): number;
     matchElementFull(
       name: string,
-      element: WebdriverIO.Element,
+      element: WebdriverIO.Element | WebdriverIO.Element[] | string,
       options?: WdioScreenshotOptions,
     ): number;
 

@@ -21,7 +21,7 @@ class FullElementMatcher extends Matcher {
 
   async takeScreenshot() {
     const base64 = await browser.saveElementScreenshot(
-      this.element.selector,
+      this.element,
       this.options,
     );
     return Buffer.from(base64, "base64");
