@@ -151,7 +151,7 @@ exports.config = {
       VisualRegression,
       {
         outputDir: "screenshots",
-        instanceFolder: info => {
+        instanceFolder: (info) => {
           const [version] = info.browserVersion.split(".");
           const platform = info.platform || process.platform;
           return `${info.browserName}_${version}_${platform.toLowerCase()}`;
@@ -252,7 +252,7 @@ exports.config = {
    */
   // before: function (capabilities, specs) {
   // },
-  before: function(capabilities, specs) {
+  before: function (capabilities, specs) {
     // require('ts-node/register');
     require("ts-node").register({ files: true });
   },
@@ -266,7 +266,7 @@ exports.config = {
   /**
    * Runs before a Cucumber feature
    */
-  beforeFeature: function(uri, feature, scenarios) {
+  beforeFeature: function (uri, feature, scenarios) {
     scenarioCounter = 0;
 
     // make sure all browsers have the same viewport dimensions
@@ -287,7 +287,7 @@ exports.config = {
    */
   // afterStep: function (uri, feature, { error, result, duration, passed }, stepData, context) {
   // },
-  afterStep: function(uri, feature, { error }) {
+  afterStep: function (uri, feature, { error }) {
     if (error !== undefined) {
       browser.takeScreenshot();
     }
@@ -295,7 +295,7 @@ exports.config = {
   /**
    * Runs after a Cucumber scenario
    */
-  afterScenario: function(uri, feature, scenario, result, sourceLocation) {
+  afterScenario: function (uri, feature, scenario, result, sourceLocation) {
     scenarioCounter += 1;
     addArgument("Scenario #", scenarioCounter);
   },
@@ -343,7 +343,7 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: function(exitCode, config, capabilities, results) {
+  onComplete: function (exitCode, config, capabilities, results) {
     try {
       // we want to wait just a bit to be the last one to report
       setTimeout(() => summarizeReportFile("screenshots/report.json"), 1);
