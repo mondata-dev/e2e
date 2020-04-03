@@ -45,7 +45,7 @@
     "reflect-metadata": "^0.1.13",
     "wdio-video-reporter": "^2.0.0",
     "wdio-viewport-size": "^1.0.1",
-    "wdio-visual-regression": "^1.0.0",
+    "wdio-visual-regression": "^1.2.0",
     "wdio-visual-regression-reporter": "^1.0.0",
     "webdriverio": "^5.15.2"
   }
