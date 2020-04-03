@@ -13,7 +13,7 @@ class Homepage extends Page {
     return $("input.gNO89b");
   }
   get resultsList() {
-    return $("#resultStats");
+    return $("#search");
   }
 
   /**

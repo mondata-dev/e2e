@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { addArgument } = require("@wdio/allure-reporter").default;
 const { VisualRegression } = require("wdio-visual-regression");
+const WdioScreenshot = require("wdio-screenshot-v5");
+const {
+  DocumentMatcher,
+} = require("./src/util/wdio-visual-regression-matchers");
 const { ViewportSizeService } = require("wdio-viewport-size");
 const { summarizeReportFile } = require("wdio-visual-regression-reporter");
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -147,6 +151,7 @@ exports.config = {
   // commands. Instead, they hook themselves up into the test process.
   services: [
     "selenium-standalone",
+    [WdioScreenshot],
     [
       VisualRegression,
       {
@@ -156,6 +161,7 @@ exports.config = {
           const platform = info.platform || process.platform;
           return `${info.browserName}_${version}_${platform.toLowerCase()}`;
         },
+        customMatchers: ["matchDocument"],
       },
     ],
     [ViewportSizeService, {}],
@@ -255,6 +261,10 @@ exports.config = {
   before: function (capabilities, specs) {
     // require('ts-node/register');
     require("ts-node").register({ files: true });
+
+    browser.addCommand("matchDocument", (name) => {
+      return new DocumentMatcher().match(name);
+    });
   },
   /**
    * Runs before a WebdriverIO command gets executed.

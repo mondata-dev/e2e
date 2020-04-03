@@ -19,4 +19,6 @@ When(/^I click the search button$/, () => {
 
 Then(/^I should see a list of search results$/, () => {
   expect(homepage.isSearched()).to.be.true;
+  expect(browser.matchDocument("search_results_document")).to.be.lessThan(10);
+  expect(browser.matchViewport("search_results_viewport")).to.be.lessThan(10);
 });
