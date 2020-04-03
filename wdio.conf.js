@@ -4,6 +4,7 @@ const { VisualRegression } = require("wdio-visual-regression");
 const WdioScreenshot = require("wdio-screenshot-v5");
 const {
   DocumentMatcher,
+  FullElementMatcher,
 } = require("./src/util/wdio-visual-regression-matchers");
 const { ViewportSizeService } = require("wdio-viewport-size");
 const { summarizeReportFile } = require("wdio-visual-regression-reporter");
@@ -161,7 +162,7 @@ exports.config = {
           const platform = info.platform || process.platform;
           return `${info.browserName}_${version}_${platform.toLowerCase()}`;
         },
-        customMatchers: ["matchDocument"],
+        customMatchers: ["matchDocument", "matchElementFull"],
       },
     ],
     [ViewportSizeService, {}],
@@ -262,8 +263,11 @@ exports.config = {
     // require('ts-node/register');
     require("ts-node").register({ files: true });
 
-    browser.addCommand("matchDocument", (name) => {
-      return new DocumentMatcher().match(name);
+    browser.addCommand("matchDocument", (name, options) => {
+      return new DocumentMatcher(options).match(name);
+    });
+    browser.addCommand("matchElementFull", (name, element, options) => {
+      return new FullElementMatcher(element, options).match(name);
     });
   },
   /**
