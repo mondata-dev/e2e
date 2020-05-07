@@ -25,4 +25,8 @@ declare module "@wdio/sync" {
       options?: WdioScreenshotOptions,
     );
   }
+
+  interface Element {
+    clearWithKeys(): void;
+  }
 }

@@ -269,6 +269,23 @@ exports.config = {
     browser.addCommand("matchElementFull", (name, element, options) => {
       return new FullElementMatcher(element, options).match(name);
     });
+
+    browser.addCommand(
+      "clearWithKeys",
+      function () {
+        const l = this.getValue().length;
+
+        // we don't know where the click occurs, so we use both backspace
+        // and delete to make sure we removed all characters
+        const keys = new Array(l)
+          .fill("Backspace")
+          .concat(new Array(l).fill("Delete"));
+
+        this.click();
+        browser.keys(keys);
+      },
+      true,
+    );
   },
   /**
    * Runs before a WebdriverIO command gets executed.
