@@ -1,9 +1,11 @@
 import "@wdio/sync";
 
 declare module "@wdio/sync" {
+  type ElementOrSelector = WebdriverIO.Element | WebdriverIO.Element[] | string;
+
   interface WdioScreenshotOptions {
-    hide?: string[];
-    remove?: string[];
+    hide?: ElementOrSelector[];
+    remove?: ElementOrSelector[];
   }
 
   // adding command to `browser`
@@ -11,7 +13,7 @@ declare module "@wdio/sync" {
     matchDocument(name: string, options?: WdioScreenshotOptions): number;
     matchElementFull(
       name: string,
-      element: WebdriverIO.Element,
+      element: ElementOrSelector,
       options?: WdioScreenshotOptions,
     ): number;
 
