@@ -3,6 +3,7 @@ const { addArgument } = require("@wdio/allure-reporter").default;
 const { VisualRegression } = require("wdio-visual-regression");
 const WdioScreenshot = require("wdio-screenshot-v5");
 const {
+  visualRegressionInstanceFolder,
   DocumentMatcher,
   FullElementMatcher,
 } = require("./src/util/wdio-visual-regression-matchers");
@@ -157,11 +158,7 @@ exports.config = {
       VisualRegression,
       {
         outputDir: "screenshots",
-        instanceFolder: (info) => {
-          const [version] = info.browserVersion.split(".");
-          const platform = info.platform || process.platform;
-          return `${info.browserName}_${version}_${platform.toLowerCase()}`;
-        },
+        instanceFolder: visualRegressionInstanceFolder,
         customMatchers: ["matchDocument", "matchElementFull"],
       },
     ],
