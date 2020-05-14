@@ -1,4 +1,5 @@
 const readFileSync = require("fs").readFileSync;
+const existsSync = require("fs").existsSync;
 const pathJoin = require("path").join;
 const Matcher = require("wdio-visual-regression").Matcher;
 const allureReporter = require("@wdio/allure-reporter").default;
@@ -9,7 +10,7 @@ function visualRegressionInstanceFolder(info) {
   return `${info.browserName}_${version}_${platform.toLowerCase()}`;
 }
 
-function readScreenshot(type, name) {
+function screenshotPath(type, name) {
   const {
     browserName,
     browserVersion,
@@ -22,9 +23,7 @@ function readScreenshot(type, name) {
     platform,
   });
 
-  return readFileSync(
-    pathJoin("screenshots", instanceFolder, type, name + ".png"),
-  );
+  return pathJoin("screenshots", instanceFolder, type, name + ".png");
 }
 
 class AllureMatcher extends Matcher {
@@ -33,21 +32,24 @@ class AllureMatcher extends Matcher {
 
     allureReporter.addAttachment(
       "visual-regression.actual",
-      readScreenshot("actual", name),
+      readFileSync(screenshotPath("actual", name)),
       "image/png",
     );
 
     allureReporter.addAttachment(
       "visual-regression.expected",
-      readScreenshot("expected", name),
+      readFileSync(screenshotPath("expected", name)),
       "image/png",
     );
 
-    allureReporter.addAttachment(
-      "visual-regression.diff",
-      readScreenshot("diff", name),
-      "image/png",
-    );
+    const diffPath = screenshotPath("diff", name);
+    if (existsSync(diffPath)) {
+      allureReporter.addAttachment(
+        "visual-regression.diff",
+        readFileSync(diffPath),
+        "image/png",
+      );
+    }
 
     return result;
   }
