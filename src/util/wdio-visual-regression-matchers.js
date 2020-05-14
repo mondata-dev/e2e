@@ -28,30 +28,30 @@ function screenshotPath(type, name) {
 
 class AllureMatcher extends Matcher {
   match(name) {
-    const result = super.match(name);
-
-    allureReporter.addAttachment(
-      "visual-regression.actual",
-      readFileSync(screenshotPath("actual", name)),
-      "image/png",
-    );
-
-    allureReporter.addAttachment(
-      "visual-regression.expected",
-      readFileSync(screenshotPath("expected", name)),
-      "image/png",
-    );
-
-    const diffPath = screenshotPath("diff", name);
-    if (existsSync(diffPath)) {
+    return super.match(name).then((result) => {
       allureReporter.addAttachment(
-        "visual-regression.diff",
-        readFileSync(diffPath),
+        "visual-regression.actual",
+        readFileSync(screenshotPath("actual", name)),
         "image/png",
       );
-    }
 
-    return result;
+      allureReporter.addAttachment(
+        "visual-regression.expected",
+        readFileSync(screenshotPath("expected", name)),
+        "image/png",
+      );
+
+      const diffPath = screenshotPath("diff", name);
+      if (existsSync(diffPath)) {
+        allureReporter.addAttachment(
+          "visual-regression.diff",
+          readFileSync(diffPath),
+          "image/png",
+        );
+      }
+
+      return result;
+    });
   }
 }
 
