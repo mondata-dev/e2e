@@ -15,7 +15,15 @@ const debug = !!process.env.DEBUG;
 const execArgv = debug ? ["--inspect"] : [];
 const stepTimout = debug ? 24 * 60 * 60 * 1000 : 6000;
 const capabilities = debug
-  ? [{ browserName: "chrome", maxInstances: 1 }]
+  ? [
+      {
+        browserName: "chrome",
+        maxInstances: 1,
+        "goog:chromeOptions": {
+          args: ["force-color-profile=srgb"],
+        },
+      },
+    ]
   : [
       {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
